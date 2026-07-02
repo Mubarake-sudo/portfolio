@@ -110,7 +110,7 @@
   }
 
   .section-subtitle {
-    @apply text-base text-white/50 font-medium uppercase tracking-widest mb-16;
+    @apply text-base text-white/50 font-medium uppercase tracking-widest mb-3;
   }
 
   .btn-primary {
@@ -128,7 +128,7 @@
   }
 
   .card {
-    @apply glass rounded-2xl p-6 transition-all duration-300
+    @apply relative glass rounded-2xl p-6 transition-all duration-300
            hover:border-[#0A84FF]/30 hover:shadow-card;
   }
 
@@ -248,4 +248,25 @@
 .orb-cyan {
   background: radial-gradient(circle, rgba(0,217,255,0.15) 0%, transparent 70%);
   animation-delay: 4s;
+}
+
+/* ─── Keyframes (required for CSS animations outside Tailwind) ─ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
