@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParticleBackground from '@/components/3d/ParticleBackground';
@@ -10,30 +13,46 @@ import Projects from '@/components/sections/Projects';
 import Experience from '@/components/sections/Experience';
 import Services from '@/components/sections/Services';
 import Contact from '@/components/sections/Contact';
+import LoadingScreen from '@/components/ui/LoadingScreen';
 
 export default function HomePage() {
+  const [loading, setLoading] = useState(true);
+
   return (
-    <main className="relative min-h-screen">
-      {/* Global particle background */}
-      <ParticleBackground />
+    <>
+      {/* ── Splash / Loading Screen ── */}
+      <LoadingScreen onComplete={() => setLoading(false)} />
 
-      {/* Navigation */}
-      <Navbar />
+      {/* ── Portfolio (caché pendant le loading) ── */}
+      <main
+        className="relative min-h-screen"
+        style={{
+          opacity: loading ? 0 : 1,
+          transition: 'opacity 0.5s ease-in',
+          pointerEvents: loading ? 'none' : 'auto',
+        }}
+      >
+        {/* Global particle background */}
+        <ParticleBackground />
 
-      {/* Page sections */}
-      <Hero />
-      <About />
-      <Skills />
-      <TechStack />
-      {/* Animated fiber transition between TechStack and Projects */}
-      <FiberTransition />
-      <Projects />
-      <Experience />
-      <Services />
-      <Contact />
+        {/* Navigation */}
+        <Navbar />
 
-      {/* Footer */}
-      <Footer />
-    </main>
+        {/* Page sections */}
+        <Hero />
+        <About />
+        <Skills />
+        <TechStack />
+        {/* Animated fiber transition between TechStack and Projects */}
+        <FiberTransition />
+        <Projects />
+        <Experience />
+        <Services />
+        <Contact />
+
+        {/* Footer */}
+        <Footer />
+      </main>
+    </>
   );
 }
