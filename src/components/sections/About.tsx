@@ -45,12 +45,12 @@ export default function About() {
                 <p className="text-[#00D9FF]">const <span className="text-white">developer</span> = {'{'}</p>
                 <p className="pl-6 text-white/70">name: <span className="text-emerald-400">&quot;Mubarake Aderemou&quot;</span>,</p>
                 <p className="pl-6 text-white/70">alias: <span className="text-emerald-400">&quot;MUBADEV&quot;</span>,</p>
-                <p className="pl-6 text-white/70">school: <span className="text-emerald-400">&quot;EPITECH Technology&quot;</span>,</p>
-                <p className="pl-6 text-white/70">location: <span className="text-emerald-400">&quot;Paris, France 🇫🇷&quot;</span>,</p>
-                <p className="pl-6 text-white/70">role: <span className="text-emerald-400">&quot;Full Stack Developer&quot;</span>,</p>
+                <p className="pl-6 text-white/70">formation: <span className="text-emerald-400">&quot;Wecode by Epitech&quot;</span>,</p>
+                <p className="pl-6 text-white/70">location: <span className="text-emerald-400">&quot;Abidjan, Côte d'Ivoire 🇨🇮&quot;</span>,</p>
+                <p className="pl-6 text-white/70">role: <span className="text-emerald-400">&quot;Développeur Web &amp; Mobile Junior&quot;</span>,</p>
                 <p className="pl-6 text-white/70">passion: [</p>
-                <p className="pl-12 text-yellow-400">&quot;Next.js&quot;, &quot;React&quot;,</p>
-                <p className="pl-12 text-yellow-400">&quot;TypeScript&quot;, &quot;UI/UX&quot;</p>
+                <p className="pl-12 text-yellow-400">&quot;Next.js&quot;, &quot;Laravel&quot;,</p>
+                <p className="pl-12 text-yellow-400">&quot;Vue.js&quot;, &quot;UI/UX&quot;</p>
                 <p className="pl-6 text-white/70">],</p>
                 <p className="pl-6 text-white/70">available: <span className="text-[#0A84FF]">true</span>,</p>
                 <p className="pl-6 text-white/70">coffee: <span className="text-[#0A84FF]">Infinity</span>,</p>
@@ -67,8 +67,8 @@ export default function About() {
               transition={{ duration: 3, repeat: Infinity }}
               className="absolute -bottom-6 -right-6 glass border border-[#0A84FF]/30 rounded-2xl px-4 py-3 shadow-glow"
             >
-              <p className="text-xs text-white/50">Étudiant EPITECH</p>
-              <p className="text-sm font-bold gradient-text">BAC+5 Expert IT</p>
+              <p className="text-xs text-white/50">Formation en cours</p>
+              <p className="text-sm font-bold gradient-text">Wecode by Epitech</p>
             </motion.div>
           </motion.div>
 
@@ -84,15 +84,17 @@ export default function About() {
 
             <div className="space-y-4 text-white/60 leading-relaxed mb-8">
               <p>
-                Passionné de technologie depuis mon adolescence, je suis développeur Full Stack
-                spécialisé en <strong className="text-white">Next.js, React et TypeScript</strong>.
-                Fondateur de <span className="text-[#0A84FF] font-semibold">MUBADEV</span>, je crée des
-                expériences digitales qui allient performance, esthétique et accessibilité.
+                Technicien Supérieur en Informatique, spécialisé en développement d&apos;applications,
+                actuellement en formation Fullstack chez{' '}
+                <strong className="text-white">Wecode by Epitech</strong>.
+                Fondateur de <span className="text-[#0A84FF] font-semibold">MUBADEV</span>, je combine
+                compétences techniques, vision marketing et direction artistique.
               </p>
               <p>
-                Actuellement en formation BAC+5 à <strong className="text-white">EPITECH Technology</strong>,
-                j&apos;applique les meilleures pratiques du génie logiciel : architecture propre,
-                tests, CI/CD et déploiement cloud.
+                Mon parcours me permet de développer des solutions web et mobiles à la fois
+                <strong className="text-white"> fonctionnelles, performantes et orientées utilisateur</strong>.
+                Je souhaite intégrer une équipe technique dynamique afin de contribuer activement
+                au développement d&apos;applications web et mobiles.
               </p>
               <p>
                 Mon moteur ? Transformer des idées ambitieuses en produits digitaux qui
