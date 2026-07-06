@@ -6,16 +6,31 @@
 
 /* ─── CSS Custom Properties ─────────────────────────────── */
 :root {
-  --bg-primary: #050816;
-  --bg-secondary: #081B33;
+  --bg-primary: #f7f7f7;
+  --bg-secondary: #f2f4f7;
   --accent-blue: #0A84FF;
   --accent-cyan: #00D9FF;
-  --text-primary: #FFFFFF;
-  --text-secondary: rgba(255,255,255,0.7);
-  --text-muted: rgba(255,255,255,0.4);
-  --glass-bg: rgba(255,255,255,0.04);
-  --glass-border: rgba(255,255,255,0.08);
-  --card-bg: rgba(8,27,51,0.6);
+  --text-primary: #111827;
+  --text-secondary: rgba(17,24,39,0.72);
+  --text-muted: rgba(17,24,39,0.5);
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(17, 24, 39, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --shadow-card: 0 20px 60px rgba(17, 24, 39, 0.08);
+}
+
+html.dark {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #050816;
+  --accent-blue: #4EA6FF;
+  --accent-cyan: #00F7FF;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.76);
+  --text-muted: rgba(255,255,255,0.45);
+  --glass-bg: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.12);
+  --card-bg: rgba(8, 27, 51, 0.72);
+  --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 /* ─── Base ─────────────────────────────────────────────── */
@@ -35,6 +50,7 @@
     color: var(--text-primary);
     font-family: 'Inter', system-ui, sans-serif;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   ::selection {

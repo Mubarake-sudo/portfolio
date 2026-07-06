@@ -90,8 +90,8 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
             </p>
           </div>
 
-          {/* Main name — massive typography */}
-          <div className="relative flex flex-col items-center">
+          {/* Main name + progress bar — regroupés ensemble */}
+          <div className="relative flex flex-col items-center w-full px-6 sm:px-10 max-w-3xl">
             {/* Ambient glow behind text */}
             <div
               className="absolute inset-0 pointer-events-none"
@@ -101,11 +101,12 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
               }}
             />
 
+            {/* MUBADEV. — typographie massive */}
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
-              className="relative font-black text-white leading-none tracking-tighter text-center"
+              className="relative font-black text-white leading-none tracking-tighter text-center w-full"
               style={{
                 fontSize: 'clamp(4rem, 14vw, 12rem)',
                 letterSpacing: '-0.02em',
@@ -114,8 +115,40 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
               MUBADEV.
             </motion.h1>
 
-            {/* Status message */}
-            <div className="mt-8 h-5 overflow-hidden flex items-center justify-center">
+            {/* ── Progress bar — juste sous le nom ── */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="relative w-full mt-6"
+            >
+              {/* Labels */}
+              <div className="flex justify-between items-center mb-2">
+                <p className="text-[9px] sm:text-[10px] tracking-[0.2em] text-white/30 uppercase font-medium">
+                  Loading Experience
+                </p>
+                <p className="text-[9px] sm:text-[10px] tracking-[0.2em] text-white/30 tabular-nums">
+                  {progress} %
+                </p>
+              </div>
+
+              {/* Bar track — 3px, bien visible */}
+              <div className="relative w-full rounded-full overflow-hidden" style={{ height: '3px', background: 'rgba(255,255,255,0.08)' }}>
+                {/* Progress fill */}
+                <div
+                  className="absolute top-0 left-0 h-full rounded-full"
+                  style={{
+                    width: `${progress}%`,
+                    background: 'linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,1) 100%)',
+                    boxShadow: '0 0 8px 1px rgba(255,255,255,0.5)',
+                    transition: 'width 0.1s linear',
+                  }}
+                />
+              </div>
+            </motion.div>
+
+            {/* Status message — sous la barre */}
+            <div className="mt-5 h-5 overflow-hidden flex items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.p
                   key={messageIndex}
@@ -131,40 +164,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
             </div>
           </div>
 
-          {/* Bottom — progress bar */}
-          <div className="absolute bottom-10 left-6 right-6 sm:left-10 sm:right-10 max-w-3xl mx-auto w-[calc(100%-3rem)] sm:w-[calc(100%-5rem)]">
-            {/* Labels */}
-            <div className="flex justify-between items-center mb-3">
-              <p className="text-[9px] sm:text-[10px] tracking-[0.2em] text-white/20 uppercase font-medium">
-                Loading Experience
-              </p>
-              <p className="text-[9px] sm:text-[10px] tracking-[0.2em] text-white/20 tabular-nums">
-                {progress} %
-              </p>
-            </div>
 
-            {/* Bar track */}
-            <div className="relative w-full h-px bg-white/10 overflow-visible">
-              {/* Progress fill */}
-              <motion.div
-                className="absolute top-0 left-0 h-px"
-                style={{
-                  width: `${progress}%`,
-                  background: 'linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.9) 100%)',
-                  transition: 'width 0.1s linear',
-                }}
-              />
-              {/* Glowing dot at tip */}
-              <div
-                className="absolute top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-white"
-                style={{
-                  left: `${progress}%`,
-                  boxShadow: '0 0 6px 2px rgba(255,255,255,0.6)',
-                  transition: 'left 0.1s linear',
-                }}
-              />
-            </div>
-          </div>
         </motion.div>
       )}
     </AnimatePresence>

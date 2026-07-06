@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import Providers from '@/components/Providers';
 
 export const metadata: Metadata = {
   title: 'Mubarake Aderemou – MUBADEV | Développeur Full Stack',
@@ -47,8 +48,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#050816] text-white antialiased overflow-x-hidden">
-        {children}
+      <body className="bg-[var(--bg-primary)] text-[var(--text-primary)] antialiased overflow-x-hidden transition-colors duration-300">
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
