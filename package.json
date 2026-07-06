@@ -32,5 +32,12 @@
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3"
+  },
+  "overrides": {
+    "@react-spring/animated": { "react": "$react" },
+    "@react-spring/core":     { "react": "$react" },
+    "@react-spring/three":    { "react": "$react" },
+    "@react-spring/web":      { "react": "$react" }
   }
 }
+

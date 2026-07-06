@@ -30,7 +30,7 @@ interface Fiber {
   speed: number;
 }
 
-function buildFibers(count: number, h: number): Fiber[] {
+function buildFibers(count: number, _h: number): Fiber[] {
   return Array.from({ length: count }, (_, i) => ({
     color: FIBER_COLORS[i % FIBER_COLORS.length],
     amplitude: 30 + Math.random() * 70,
@@ -94,6 +94,7 @@ export default function FiberTransition() {
           /* Map t to x: from center outward in both directions */
           const xLeft = cx - t * spreadX;
           const xRight = cx + t * spreadX;
+          void xLeft; // used for the mirrored left draw below
 
           // sinusoidal Y deviation – grows with distance from center
           const sinVal =

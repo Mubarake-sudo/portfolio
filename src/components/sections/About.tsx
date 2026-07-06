@@ -46,7 +46,7 @@ export default function About() {
                 <p className="pl-6 text-white/70">name: <span className="text-emerald-400">&quot;Mubarake Aderemou&quot;</span>,</p>
                 <p className="pl-6 text-white/70">alias: <span className="text-emerald-400">&quot;MUBADEV&quot;</span>,</p>
                 <p className="pl-6 text-white/70">formation: <span className="text-emerald-400">&quot;Wecode by Epitech&quot;</span>,</p>
-                <p className="pl-6 text-white/70">location: <span className="text-emerald-400">&quot;Abidjan, Côte d'Ivoire 🇨🇮&quot;</span>,</p>
+                <p className="pl-6 text-white/70">location: <span className="text-emerald-400">&quot;Abidjan, Côte d&apos;Ivoire 🇨🇮&quot;</span>,</p>
                 <p className="pl-6 text-white/70">role: <span className="text-emerald-400">&quot;Développeur Web &amp; Mobile Junior&quot;</span>,</p>
                 <p className="pl-6 text-white/70">passion: [</p>
                 <p className="pl-12 text-yellow-400">&quot;Next.js&quot;, &quot;Laravel&quot;,</p>

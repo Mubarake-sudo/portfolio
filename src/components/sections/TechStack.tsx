@@ -82,8 +82,6 @@ function Tag({ tech }: { tech: typeof TECH_STACK[number] }) {
 }
 
 /* Category group */
-const LEFT_COLS = ['Frontend', 'Mobile'];
-const RIGHT_COLS = ['Backend', 'Database', 'DevOps', 'Library', 'Testing', 'Tools', 'Design'];
 
 const GROUP_LABELS: Record<string, { label: string; color: string }> = {
   Frontend:  { label: 'FRONTEND SYSTEMS',          color: '#0A84FF' },
