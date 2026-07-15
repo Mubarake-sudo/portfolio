@@ -76,11 +76,11 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-white/80 uppercase tracking-widest mb-4">Contact</h3>
             <ul className="space-y-3 text-sm text-white/50">
               <li>
-                <a href="mailto:mubarake@mubadev.com" className="hover:text-[#0A84FF] transition-colors">
-                  mubarake@mubadev.com
+                <a href="mailto:mubarake.aderemou@epitech.eu" className="hover:text-[#0A84FF] transition-colors">
+                  mubarake.aderemou@epitech.eu
                 </a>
               </li>
-              <li>Paris, France 🇫🇷</li>
+              <li>Abidjan, Côte d'Ivoire 🇨🇮</li>
               <li className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-emerald-400">Disponible pour missions</span>

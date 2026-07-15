@@ -67,7 +67,7 @@ export default function Contact() {
             {/* Contact details */}
             <div className="space-y-4">
               <a
-                href="mailto:mubarake@mubadev.com"
+                href="mailto:mubarake.aderemou@epitech.eu"
                 className="flex items-center gap-4 card hover:border-[#0A84FF]/30 group"
                 id="contact-email"
               >
@@ -76,7 +76,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-white/40 text-xs">Email</p>
-                  <p className="text-white text-sm font-medium">mubarake@mubadev.com</p>
+                  <p className="text-white text-sm font-medium">mubarake.aderemou@epitech.eu</p>
                 </div>
               </a>
 
@@ -118,7 +118,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-white/40 text-xs">Localisation</p>
-                  <p className="text-white text-sm font-medium">Abidjan, France 🇫🇷</p>
+                  <p className="text-white text-sm font-medium">Abidjan, Côte d'Ivoire 🇨🇮</p>
                 </div>
               </div>
             </div>

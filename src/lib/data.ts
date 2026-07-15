@@ -13,7 +13,7 @@ export const NAV_ITEMS: NavItem[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   { platform: 'GitHub', url: 'https://github.com/Mubarake-sudo', icon: 'github' },
   { platform: 'LinkedIn', url: 'https://linkedin.com/in/mubarake-aderemou', icon: 'linkedin' },
-  { platform: 'Email', url: 'mailto:mubarake@mubadev.com', icon: 'mail' },
+  { platform: 'Email', url: 'mailto:mubarake.aderemou@epitech.eu', icon: 'mail' },
 ];
 
 export const STATS: Stat[] = [
@@ -36,6 +36,7 @@ export const SKILLS: Skill[] = [
   { name: 'Three.js / R3F', level: 72, category: 'Frontend' },
   { name: 'TailwindCSS', level: 95, category: 'Frontend' },
   { name: 'React Native', level: 76, category: 'Mobile' },
+  { name: 'Flutter', level: 78, category: 'Mobile' }
 ];
 
 export const TECH_STACK: TechStack[] = [
@@ -51,6 +52,7 @@ export const TECH_STACK: TechStack[] = [
   { name: 'Vue.js', icon: 'vuejs', category: 'Frontend' },
   { name: 'Nuxt.js', icon: 'nuxtjs', category: 'Frontend' },
   { name: 'React Native', icon: 'react', category: 'Mobile' },
+  { name: 'flutter', icon: 'flutter', category: 'Mobile' },
   { name: 'Node.js', icon: 'nodejs', category: 'Backend' },
   { name: 'NestJS', icon: 'nestjs', category: 'Backend' },
   { name: 'Express', icon: 'express', category: 'Backend' },
