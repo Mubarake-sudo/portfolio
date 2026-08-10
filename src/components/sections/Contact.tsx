@@ -17,17 +17,42 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
 
-    // Simulate form submission (replace with actual API call)
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setStatus('success');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', { // ✅ Bonne URL
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '9e77b776-4ff8-43ae-9920-3fe19c349f95',
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+    }
 
     setTimeout(() => setStatus('idle'), 5000);
   };
+
 
   return (
     <section id="contact" ref={ref} className="relative section-padding">

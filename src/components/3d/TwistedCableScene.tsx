@@ -18,25 +18,34 @@ interface AnimatedCableProps {
 
 function AnimatedCable({ side, color, index }: AnimatedCableProps) {
   const lineRef = useRef<THREE.Line>(null);
+  // Augmentation du nombre de points pour des courbes plus lisses
   const points = useMemo(
-    () => new Array(48).fill(null).map(() => new THREE.Vector3()),
+    () => new Array(80).fill(null).map(() => new THREE.Vector3()),
     []
   );
 
   useFrame(({ clock }) => {
-    const elapsed = clock.getElapsedTime() * 1.1;
+    // Vitesse ralentie pour un effet plus "premium" et zen
+    const elapsed = clock.getElapsedTime() * 0.35; 
     const direction = side === 'left' ? -1 : 1;
 
     for (let i = 0; i < points.length; i += 1) {
       const t = i / (points.length - 1);
-      const xBase = THREE.MathUtils.lerp(direction * 5.2, direction * 0.4, t);
-      const yBase = THREE.MathUtils.lerp(-1.8, 1.8, t);
-      const wave = Math.sin(t * Math.PI * 4 + elapsed * 1.2 + index) * 0.45;
-      const pulse = Math.sin(t * 2 + elapsed * 1.6 + index * 0.6) * 0.18;
-      const twist = Math.sin(elapsed * 1.3 + t * Math.PI * 2 + index * 0.8) * 0.08;
-      const z = Math.cos(t * Math.PI * 3.2 + elapsed * 1.5 + index * 0.5) * 0.16;
-      const x = xBase + wave * 0.3 * direction + twist * direction;
-      const y = yBase + pulse;
+      
+      // X va des bords (±7) vers le centre (0)
+      const x = THREE.MathUtils.lerp(direction * 7, 0, t);
+      
+      // La magie est ici : 'taper' fait en sorte que l'amplitude 
+      // diminue à mesure qu'on approche du centre (t = 1)
+      const taper = Math.pow(1 - t, 1.5); 
+      
+      // Courbes amples et fluides au lieu de zigzags serrés
+      const waveY = Math.sin(t * Math.PI * 2.5 + elapsed + index * 0.8);
+      const waveZ = Math.cos(t * Math.PI * 2.5 + elapsed + index * 0.8);
+
+      const y = waveY * 2.5 * taper;
+      const z = waveZ * 2.5 * taper;
+      
       points[i].set(x, y, z);
     }
 
@@ -50,17 +59,12 @@ function AnimatedCable({ side, color, index }: AnimatedCableProps) {
       ref={lineRef}
       points={points}
       color={color}
-      lineWidth={3}
+      // Les lignes varient légèrement en épaisseur
+      lineWidth={index % 2 === 0 ? 2.5 : 1.5} 
       transparent
-      opacity={0.95}
-      dashed={false}
-      vertexColors={false}
-      material={{
-        toneMapped: false,
-        transparent: true,
-        opacity: 0.92,
-        blending: THREE.AdditiveBlending,
-      }}
+      opacity={0.65} // Plus subtil
+      blending={THREE.AdditiveBlending}
+      depthWrite={false}
     />
   );
 }
@@ -69,7 +73,8 @@ function CenterPulse() {
   const pulseRef = useRef<THREE.Mesh>(null);
 
   useFrame(({ clock }) => {
-    const scale = 1 + Math.sin(clock.getElapsedTime() * 3.4) * 0.16;
+    // Pulsation plus douce
+    const scale = 1 + Math.sin(clock.getElapsedTime() * 2) * 0.2;
     if (pulseRef.current) {
       pulseRef.current.scale.setScalar(scale);
     }
@@ -77,9 +82,9 @@ function CenterPulse() {
 
   return (
     <mesh ref={pulseRef} position={[0, 0, 0]}>
-      <sphereGeometry args={[0.08, 32, 32]} />
+      <sphereGeometry args={[0.06, 32, 32]} />
       <meshBasicMaterial color="#ffffff" toneMapped={false} />
-      <pointLight color="#ffffff" intensity={3.4} distance={2.2} decay={1.5} />
+      <pointLight color="#00F7FF" intensity={4} distance={3} decay={2} />
     </mesh>
   );
 }
@@ -87,10 +92,9 @@ function CenterPulse() {
 export default function TwistedCableScene() {
   const { isDark } = useTheme();
   const cableColors = isDark ? DARK_CABLE_COLORS : LIGHT_CABLE_COLORS;
-  const backgroundClass = isDark ? 'bg-[#050816]' : 'bg-[#f8fafc]';
-  const shadowStyle = isDark
-    ? 'shadow-[0_0_120px_rgba(0,0,0,0.35)]'
-    : 'shadow-[0_0_120px_rgba(17,24,39,0.1)]';
+  
+  // Suppression du fond plein pour qu'il s'intègre parfaitement à votre site
+  const backgroundClass = isDark ? 'bg-transparent' : 'bg-transparent'; 
 
   return (
     <motion.div
@@ -98,14 +102,12 @@ export default function TwistedCableScene() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.9, ease: 'easeOut' }}
-      className={`relative w-full h-[560px] rounded-3xl overflow-hidden ${backgroundClass} ${shadowStyle}`}
+      className={`relative w-full h-[400px] rounded-3xl overflow-hidden ${backgroundClass}`}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_45%)] pointer-events-none" />
-      <Canvas camera={{ position: [0, 0, 10], fov: 35 }}>
+      <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
         <ambientLight intensity={0.8} />
-        <directionalLight color="#5be0ff" intensity={0.6} position={[5, 5, 8]} />
-
-        <group rotation={[0.03, 0.12, 0]}>
+        
+        <group>
           {cableColors.map((color, index) => (
             <AnimatedCable
               key={`left-cable-${color}-${index}`}
@@ -119,7 +121,7 @@ export default function TwistedCableScene() {
               key={`right-cable-${color}-${index}`}
               side="right"
               color={color}
-              index={index + 0.7}
+              index={index + 0.5}
             />
           ))}
           <CenterPulse />
