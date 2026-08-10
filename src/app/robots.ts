@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://mubadev.vercel.app/sitemap.xml',
+    sitemap: 'https://portfolio-khaki-iota-91.vercel.app/sitemap.xml',
   };
 }

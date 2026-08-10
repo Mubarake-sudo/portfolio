@@ -53,7 +53,7 @@ export default function Navbar() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0A84FF] to-[#00D9FF] flex items-center justify-center shadow-glow group-hover:shadow-glow-lg transition-all duration-300">
                 <Code2 size={16} className="text-white" />
               </div>
-              <span className="font-bold text-lg gradient-text">MUBADEV</span>
+              <span className="font-bold text-lg gradient-text">MUBARAKE ADEREMOU</span>
             </button>
 
             {/* Desktop Nav */}

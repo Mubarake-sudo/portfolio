@@ -10,41 +10,27 @@ import { TECH_STACK } from '@/lib/data';
    (même liste que l'original, inchangée)
 ────────────────────────────────────────────────────────────── */
 const ICON_MAP: Record<string, { name: string; variant?: string }> = {
-  nextjs:     { name: 'nextjs',      variant: 'original' },
   react:      { name: 'react',       variant: 'original' },
   typescript: { name: 'typescript',  variant: 'plain'    },
   javascript: { name: 'javascript',  variant: 'plain'    },
   tailwindcss:{ name: 'tailwindcss', variant: 'plain'    },
   html5:      { name: 'html5',       variant: 'plain'    },
   css3:       { name: 'css3',        variant: 'plain'    },
-  sass:       { name: 'sass',        variant: 'original' },
   bootstrap:  { name: 'bootstrap',   variant: 'plain'    },
   vuejs:      { name: 'vuejs',       variant: 'plain'    },
-  nuxtjs:     { name: 'nuxtjs',      variant: 'plain'    },
+  dart:       { name: 'dart',        variant: 'plain'    },
+  django:     { name: 'django',      variant: 'plain'    },
   nodejs:     { name: 'nodejs',      variant: 'plain'    },
   nestjs:     { name: 'nestjs',      variant: 'plain'    },
-  express:    { name: 'express',     variant: 'original' },
   php:        { name: 'php',         variant: 'plain'    },
   laravel:    { name: 'laravel',     variant: 'plain'    },
   python:     { name: 'python',      variant: 'plain'    },
   flask:      { name: 'flask',       variant: 'original' },
-  c:          { name: 'c',           variant: 'plain'    },
   postgresql: { name: 'postgresql',  variant: 'plain'    },
   mysql:      { name: 'mysql',       variant: 'plain'    },
   mongodb:    { name: 'mongodb',     variant: 'plain'    },
-  sqlite:     { name: 'sqlite',      variant: 'plain'    },
-  redis:      { name: 'redis',       variant: 'plain'    },
-  docker:     { name: 'docker',      variant: 'plain'    },
   git:        { name: 'git',         variant: 'plain'    },
-  linux:      { name: 'linux',       variant: 'plain'    },
-  vercel:     { name: 'vercel',      variant: 'original' },
-  heroku:     { name: 'heroku',      variant: 'plain'    },
-  chartjs:    { name: 'jest',        variant: 'plain'    }, // fallback
-  jest:       { name: 'jest',        variant: 'plain'    },
-  redux:      { name: 'redux',       variant: 'original' },
-  figma:      { name: 'figma',       variant: 'plain'    },
-  photoshop:  { name: 'photoshop',   variant: 'plain'    },
-  postman:    { name: 'postman',     variant: 'plain'    },
+  github:     { name: 'github',      variant: 'original' },
 };
 
 function TechIcon({ icon, name }: { icon: string; name: string }) {
@@ -88,11 +74,7 @@ const GROUP_LABELS: Record<string, { label: string; color: string }> = {
   Mobile:    { label: 'MOBILE',                     color: '#0A84FF' },
   Backend:   { label: 'BACKEND LOGIC',              color: '#FF6B35' },
   Database:  { label: 'DATABASE',                   color: '#FF6B35' },
-  DevOps:    { label: 'DEVOPS & DÉPLOIEMENT',       color: '#FF6B35' },
-  Library:   { label: 'LIBRAIRIES',                 color: '#A78BFA' },
-  Testing:   { label: 'TESTING',                    color: '#A78BFA' },
-  Tools:     { label: 'OUTILS',                     color: '#A78BFA' },
-  Design:    { label: 'DESIGN',                     color: '#FF6B35' },
+  Outils:    { label: 'OUTILS',                     color: '#A78BFA' },
 };
 
 function SkillGroup({ category, delay }: { category: string; delay: number }) {
@@ -117,11 +99,8 @@ function SkillGroup({ category, delay }: { category: string; delay: number }) {
   );
 }
 
-/* Merge Library + Testing + Tools + Design on right side to one group */
 function RightExtraGroup({ delay }: { delay: number }) {
-  const extra = TECH_STACK.filter((t) =>
-    ['Library', 'Testing', 'Tools', 'Design'].includes(t.category)
-  );
+  const extra = TECH_STACK.filter((t) => t.category === 'Outils');
   if (extra.length === 0) return null;
   return (
     <motion.div
@@ -134,7 +113,7 @@ function RightExtraGroup({ delay }: { delay: number }) {
         {extra.map((t) => <Tag key={t.name} tech={t} />)}
       </div>
       <span className="text-[10px] font-bold tracking-widest uppercase mt-0.5 text-[#A78BFA]">
-        DESIGN, LIBRAIRIES & OUTILS
+        OUTILS
       </span>
     </motion.div>
   );
@@ -158,7 +137,7 @@ export default function TechStack() {
           <p className="section-subtitle">Mon arsenal</p>
           <h2 className="section-title">Tech Stack</h2>
           <p className="text-white/40 text-sm max-w-xl mx-auto mt-3">
-            Plus de 35 technologies maîtrisées, de la conception au déploiement.
+            Une sélection de technologies utilisées dans mes projets web et mobiles.
           </p>
         </motion.div>
 
@@ -205,7 +184,6 @@ export default function TechStack() {
             <div className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-8 w-[42%] max-w-[340px]">
               <SkillGroup category="Backend"  delay={0.30} />
               <SkillGroup category="Database" delay={0.40} />
-              <SkillGroup category="DevOps"   delay={0.45} />
               <RightExtraGroup               delay={0.50} />
             </div>
 

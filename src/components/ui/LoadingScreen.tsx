@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 /* ──────────────────────────────────────────────────────────────
    LoadingScreen
    Splash screen displayed on first load, inspired by VAIBHAV.
-   Adapté à la charte MUBADEV : fond noir, typographie massive,
+  Adapté à la charte du portfolio : fond noir, typographie massive,
    barre de progression animée, messages séquentiels.
 ────────────────────────────────────────────────────────────── */
 
@@ -101,7 +101,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
               }}
             />
 
-            {/* MUBADEV. — typographie massive */}
+            {/* Nom du portfolio */}
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -112,7 +112,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
                 letterSpacing: '-0.02em',
               }}
             >
-              MUBADEV.
+              MUBARAKE ADEREMOU
             </motion.h1>
 
             {/* ── Progress bar — juste sous le nom ── */}

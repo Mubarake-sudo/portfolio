@@ -11,7 +11,6 @@ import TechStack from '@/components/sections/TechStack';
 import FiberTransition from '@/components/sections/FiberTransition';
 import Projects from '@/components/sections/Projects';
 import Experience from '@/components/sections/Experience';
-import Services from '@/components/sections/Services';
 import Contact from '@/components/sections/Contact';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 
@@ -47,7 +46,6 @@ export default function HomePage() {
         <FiberTransition />
         <Projects />
         <Experience />
-        <Services />
         <Contact />
 
         {/* Footer */}

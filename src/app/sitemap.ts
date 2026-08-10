@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://mubadev.vercel.app';
+  const baseUrl = 'https://portfolio-khaki-iota-91.vercel.app';
 
   return [
     {

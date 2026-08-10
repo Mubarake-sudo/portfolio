@@ -3,26 +3,24 @@ import './globals.css';
 import Providers from '@/components/Providers';
 
 export const metadata: Metadata = {
-  title: 'Mubarake Aderemou – MUBADEV | Développeur Full Stack',
-  description: 'Portfolio professionnel de Mubarake Aderemou, développeur Full Stack passionné. Expert Next.js, React, TypeScript, Node.js et bien plus. Basé à Paris, ouvert aux opportunités mondiales.',
-  keywords: ['développeur full stack', 'Next.js', 'React', 'TypeScript', 'MUBADEV', 'Mubarake Aderemou', 'portfolio', 'EPITECH'],
+  title: 'Mubarake Aderemou — Développeur Fullstack Junior',
+  description: 'Portfolio de Mubarake Aderemou, Développeur Fullstack Junior basé à Abidjan, Côte d’Ivoire. Découvrez ses projets web et mobiles, ses compétences techniques et son parcours.',
+  keywords: ['développeur fullstack junior', 'Mubarake Aderemou', 'Abidjan', 'portfolio'],
   authors: [{ name: 'Mubarake Aderemou' }],
   creator: 'Mubarake Aderemou',
-  metadataBase: new URL('https://mubadev.vercel.app'),
+  metadataBase: new URL('https://portfolio-khaki-iota-91.vercel.app/'),
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://mubadev.vercel.app',
-    title: 'Mubarake Aderemou – MUBADEV | Développeur Full Stack',
-    description: 'Portfolio professionnel de Mubarake Aderemou – Développeur Full Stack, créateur d\'expériences digitales premium.',
-    siteName: 'MUBADEV Portfolio',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'MUBADEV Portfolio' }],
+    url: 'https://portfolio-khaki-iota-91.vercel.app/',
+    title: 'Mubarake Aderemou — Développeur Fullstack Junior',
+    description: 'Portfolio de Mubarake Aderemou, Développeur Fullstack Junior basé à Abidjan, Côte d’Ivoire.',
+    siteName: 'Portfolio de Mubarake Aderemou',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mubarake Aderemou – MUBADEV',
-    description: 'Développeur Full Stack | Next.js · React · TypeScript · Node.js',
-    images: ['/og-image.jpg'],
+    title: 'Mubarake Aderemou — Développeur Fullstack Junior',
+    description: 'Développeur Fullstack Junior basé à Abidjan, Côte d’Ivoire.',
   },
   robots: {
     index: true,

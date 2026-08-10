@@ -4,11 +4,11 @@ export interface Project {
   description: string;
   longDescription?: string;
   technologies: string[];
-  image: string;
+  image?: string;
   github?: string;
   demo?: string;
   featured?: boolean;
-  year: number;
+  year?: number;
 }
 
 export interface Experience {
@@ -51,7 +51,6 @@ export interface Service {
 
 export interface Skill {
   name: string;
-  level: number;
   category: string;
 }
 

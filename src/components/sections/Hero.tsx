@@ -3,44 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Download, Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
-import { STATS } from '@/lib/data';
-
-// ──────────────────────────────────────────────────────────────
-//  Compteur animé (stats)
-// ──────────────────────────────────────────────────────────────
-function AnimatedCounter({ value, suffix = '' }: { value: string; suffix?: string }) {
-  const [count, setCount] = useState(0);
-  const num = parseInt(value, 10);
-  const ref = useRef<HTMLSpanElement>(null);
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          let start = 0;
-          const duration = 1800;
-          const step = duration / num;
-          const timer = setInterval(() => {
-            start += 1;
-            setCount(start);
-            if (start >= num) clearInterval(timer);
-          }, step);
-        }
-      },
-      { threshold: 0.5 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [num]);
-
-  return (
-    <span ref={ref} className="font-bold text-3xl md:text-4xl gradient-text">
-      {count}{suffix}
-    </span>
-  );
-}
 
 // ──────────────────────────────────────────────────────────────
 //  Étapes de texte
@@ -54,35 +16,18 @@ const textSteps = [
         <span className="gradient-text">Aderemou.</span>
       </>
     ),
-    subtitle: "Développeur Web & Mobile · Abidjan, Côte d'Ivoire 🇨🇮",
-    showStats: true,
+    subtitle: "Développeur Fullstack Junior · Abidjan, Côte d'Ivoire 🇨🇮",
     showActions: true,
   },
   {
-    title: (
-      <>
-        <span className="text-white">Je construis</span>
-        <br />
-        <span className="gradient-text">des interfaces</span>
-        <br />
-        <span className="text-white">qui impressionnent.</span>
-      </>
-    ),
-    subtitle: "Next.js · React · Vue.js · TypeScript · TailwindCSS",
+    title: <span className="text-white">Je conçois et développe des applications web et mobiles.</span>,
+    subtitle: "Frontend · Backend · Données",
     showStats: false,
     showActions: false,
   },
   {
-    title: (
-      <>
-        <span className="text-white">Prêt à</span>
-        <br />
-        <span className="gradient-text">construire l&apos;avenir</span>
-        <br />
-        <span className="text-white">avec vous.</span>
-      </>
-    ),
-    subtitle: "Discutons de votre projet.",
+    title: <span className="text-white">Des projets académiques et personnels au centre de mon parcours.</span>,
+    subtitle: "Web & Mobile",
     showStats: false,
     showActions: true,
   },
@@ -210,23 +155,6 @@ export default function Hero() {
                   </p>
                 )}
 
-                {/* Stats (étape 0) */}
-                {step.showStats && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-lg mb-10"
-                  >
-                    {STATS.map((stat) => (
-                      <div key={stat.label} className="text-left">
-                        <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                        <p className="text-white/40 text-xs mt-1">{stat.label}</p>
-                      </div>
-                    ))}
-                  </motion.div>
-                )}
-
                 {/* Boutons CTA */}
                 {step.showActions && (
                   <div className="flex flex-wrap gap-4">
@@ -250,7 +178,7 @@ export default function Hero() {
                       GitHub
                     </a>
                     <a
-                      href="https://linkedin.com/in/mubarake-aderemou"
+                      href="https://www.linkedin.com/in/mubarake-aderemou-25a05a417/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-outline"

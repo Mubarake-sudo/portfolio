@@ -149,9 +149,11 @@ function ProjectCard({ project, index, isInView }: { project: Project; index: nu
           </motion.div>
 
           {/* Badges */}
-          <div className="absolute top-3 right-3 glass border border-white/10 rounded-full px-3 py-1 z-20">
-            <span className="text-xs text-white/50">{project.year}</span>
-          </div>
+          {project.year && (
+            <div className="absolute top-3 right-3 glass border border-white/10 rounded-full px-3 py-1 z-20">
+              <span className="text-xs text-white/50">{project.year}</span>
+            </div>
+          )}
           {project.featured && (
             <div
               className="absolute top-3 left-3 rounded-full px-3 py-1 z-20"

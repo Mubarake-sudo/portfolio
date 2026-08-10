@@ -33,10 +33,10 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0A84FF] to-[#00D9FF] flex items-center justify-center">
                 <Code2 size={16} className="text-white" />
               </div>
-              <span className="font-bold text-lg gradient-text">MUBADEV</span>
+              <span className="font-bold text-lg gradient-text">MUBARAKE ADEREMOU</span>
             </div>
             <p className="text-white/50 text-sm leading-relaxed max-w-xs">
-              Développeur Full Stack passionné par la création d&apos;expériences digitales premium. Disponible pour des projets freelance et des opportunités d&apos;emploi.
+              Développeur Fullstack Junior basé à Abidjan, Côte d&apos;Ivoire.
             </p>
             <div className="flex gap-3 mt-6">
               {SOCIAL_LINKS.map((link) => (
@@ -80,7 +80,8 @@ export default function Footer() {
                   mubarake.aderemou@epitech.eu
                 </a>
               </li>
-              <li>Abidjan, Côte d'Ivoire 🇨🇮</li>
+              <li>Abidjan, Côte d&apos;Ivoire — Attécoubé</li>
+              <li><a href="tel:0586269391" className="hover:text-[#0A84FF] transition-colors">0586269391</a></li>
               <li className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-emerald-400">Disponible pour missions</span>
@@ -92,10 +93,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.06]">
           <p className="text-white/30 text-xs">
-            © {new Date().getFullYear()} Mubarake Aderemou – MUBADEV. Tous droits réservés.
+            © {new Date().getFullYear()} Mubarake Aderemou. Tous droits réservés.
           </p>
           <p className="text-white/30 text-xs">
-            Conçu & développé avec ❤️ | Next.js · React · TypeScript
+            Développeur Fullstack Junior | Web & Mobile
           </p>
         </div>
       </div>

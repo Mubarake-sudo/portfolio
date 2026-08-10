@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { MapPin, Calendar } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { EXPERIENCES, EDUCATION } from '@/lib/data';
 
 export default function Experience() {
@@ -133,51 +133,12 @@ export default function Experience() {
                         <p className="text-white/50 text-sm leading-relaxed">{edu.description}</p>
                       )}
 
-                      {/* EPITECH highlights */}
-                      <div className="flex flex-wrap gap-1.5 mt-4">
-                        {['Projets Agile', 'Architecture Logicielle', 'Innovation', 'C/C++', 'Linux', 'Network'].map((tag) => (
-                          <span key={tag} className="tech-badge">{tag}</span>
-                        ))}
-                      </div>
                     </div>
                   </motion.div>
                 ))}
               </div>
             </div>
 
-            {/* Certifications */}
-            <div className="mt-12">
-              <h3 className="text-lg font-bold text-white/80 mb-6 flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-yellow-400/80 to-orange-400/80 flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">🏆</span>
-                </div>
-                Certifications
-              </h3>
-
-              <div className="space-y-3">
-                {[
-                  { title: 'Full Stack Web Development', issuer: 'FreeCodeCamp', date: '2024' },
-                  { title: 'React & Next.js Advanced', issuer: 'Udemy', date: '2024' },
-                  { title: 'Docker & DevOps Fundamentals', issuer: 'Udemy', date: '2025' },
-                ].map((cert, i) => (
-                  <motion.div
-                    key={cert.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.6 + i * 0.1 }}
-                    className="flex items-center gap-4 p-4 glass rounded-xl border border-white/[0.06] hover:border-yellow-400/20 transition-all duration-200"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-yellow-400/20 to-orange-400/20 flex items-center justify-center flex-shrink-0">
-                      <span className="text-lg">🎓</span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-white text-sm truncate">{cert.title}</p>
-                      <p className="text-white/40 text-xs">{cert.issuer} · {cert.date}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>

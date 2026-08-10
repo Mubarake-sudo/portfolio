@@ -106,7 +106,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://linkedin.com/in/mubarake-aderemou"
+                href="https://www.linkedin.com/in/mubarake-aderemou-25a05a417/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 card hover:border-[#0A84FF]/30 group"
@@ -143,9 +143,19 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-white/40 text-xs">Localisation</p>
-                  <p className="text-white text-sm font-medium">Abidjan, Côte d'Ivoire 🇨🇮</p>
+                  <p className="text-white text-sm font-medium">Abidjan, Côte d&apos;Ivoire — Attécoubé</p>
                 </div>
               </div>
+
+              <a href="tel:0586269391" className="flex items-center gap-4 card hover:border-[#0A84FF]/30 group">
+                <div className="w-10 h-10 rounded-xl bg-[#0A84FF]/10 flex items-center justify-center text-[#0A84FF]">
+                  <span className="text-sm font-bold">TEL</span>
+                </div>
+                <div>
+                  <p className="text-white/40 text-xs">Téléphone</p>
+                  <p className="text-white text-sm font-medium">0586269391</p>
+                </div>
+              </a>
             </div>
           </motion.div>
 
