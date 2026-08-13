@@ -22,7 +22,7 @@ export default function Contact() {
     setStatus('sending');
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', { // ✅ Bonne URL
+      const response = await fetch('https://api.web3forms.com/submit', { //  URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <a href="tel:0586269391" className="flex items-center gap-4 card hover:border-[#0A84FF]/30 group">
+              <a href="tel:+2250586269391" className="flex items-center gap-4 card hover:border-[#0A84FF]/30 group">
                 <div className="w-10 h-10 rounded-xl bg-[#0A84FF]/10 flex items-center justify-center text-[#0A84FF]">
                   <span className="text-sm font-bold">TEL</span>
                 </div>
@@ -177,7 +177,7 @@ export default function Contact() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Jean Dupont"
+                    placeholder="Mubarake Aderemou"
                     className="w-full px-4 py-3 glass rounded-xl border border-white/10 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-[#0A84FF]/50 focus:shadow-glow transition-all"
                   />
                 </div>
@@ -190,7 +190,7 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="jean@exemple.com"
+                    placeholder="mubadev@gmail.com"
                     className="w-full px-4 py-3 glass rounded-xl border border-white/10 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-[#0A84FF]/50 focus:shadow-glow transition-all"
                   />
                 </div>

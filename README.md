@@ -2,7 +2,7 @@
 
 Portfolio personnel de Mubarake Aderemou, Développeur Fullstack Junior basé à Abidjan, Côte d’Ivoire.
 
-Le site présente quatre projets confirmés : YOWL, FreeAds, Concert Booking Platform et Post-It App, ainsi que la formation et la stack technique déclarées.
+Le site présente plusieurs projets confirmés : Linkora, VortexADS, Concert Booking Platform, MyContacts, Post-it App et Furniture Shop, ainsi que la formation et la stack technique déclarées.
 
 ## Développement
 

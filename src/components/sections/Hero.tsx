@@ -39,6 +39,7 @@ const textSteps = [
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showCvViewer, setShowCvViewer] = useState(false);
 
   // Hauteur totale = nb étapes × hauteur écran
   useEffect(() => {
@@ -57,7 +58,7 @@ export default function Hero() {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowH = window.innerHeight;
-      const step = windowH / 1.8;
+      const step = window.innerWidth < 640 ? windowH / 1.1 : windowH / 1.8;
       const rawIndex = Math.floor(scrollY / step);
       const clamped = Math.min(Math.max(rawIndex, 0), textSteps.length - 1);
       setActiveIndex(clamped);
@@ -159,7 +160,7 @@ export default function Hero() {
                 {step.showActions && (
                   <div className="flex flex-wrap gap-4">
                     <a
-                      href="/cv-mubarake-aderemou.pdf"
+                      href="/CV_Mubarake_Aderemou_Developpeur_Fullstack_Junior.pdf"
                       download
                       className="btn-primary"
                       id="hero-download-cv"
@@ -167,6 +168,13 @@ export default function Hero() {
                       <Download size={16} />
                       Télécharger CV
                     </a>
+                    <button
+                      onClick={() => setShowCvViewer(true)}
+                      className="btn-outline"
+                      id="hero-view-cv"
+                    >
+                      Voir le CV
+                    </button>
                     <a
                       href="https://github.com/Mubarake-sudo"
                       target="_blank"
@@ -232,6 +240,24 @@ export default function Hero() {
         </motion.div>
 
       </div>
+        {/* CV Viewer Modal */}
+        {showCvViewer && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+            <div className="w-[92%] md:w-[80%] lg:w-[70%] h-[90%] bg-[#050816] rounded-xl overflow-hidden shadow-2xl">
+              <div className="flex items-center justify-between p-3 border-b border-white/5">
+                <div className="text-white font-semibold">CV — Mubarake Aderemou</div>
+                <button onClick={() => setShowCvViewer(false)} className="btn-outline">Fermer</button>
+              </div>
+              <div className="w-full h-full">
+                <iframe
+                  src="/CV_Mubarake_Aderemou_Developpeur_Fullstack_Junior.pdf"
+                  title="CV Mubarake Aderemou"
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+          </div>
+        )}
     </div>
   );
 }

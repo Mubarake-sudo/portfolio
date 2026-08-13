@@ -26,6 +26,7 @@ export const SKILLS: Skill[] = [
   { name: 'NestJS', category: 'Backend' }, { name: 'Flutter', category: 'Mobile' },
   { name: 'Dart', category: 'Mobile' }, { name: 'MySQL', category: 'Database' },
   { name: 'MongoDB', category: 'Database' }, { name: 'PostgreSQL', category: 'Database' },
+  { name: 'React Native', category: 'Mobile' }, { name: 'Docker', category: 'Frontend' },
   { name: 'Git', category: 'Outils' }, { name: 'GitHub', category: 'Outils' },
 ];
 
@@ -35,6 +36,7 @@ export const TECH_STACK: TechStack[] = [
   { name: 'React', icon: 'react', category: 'Frontend' }, { name: 'Vue.js', icon: 'vuejs', category: 'Frontend' },
   { name: 'Tailwind CSS', icon: 'tailwindcss', category: 'Frontend' }, { name: 'Bootstrap', icon: 'bootstrap', category: 'Frontend' },
   { name: 'Flutter', icon: 'flutter', category: 'Mobile' }, { name: 'Dart', icon: 'dart', category: 'Mobile' },
+  { name: 'React Native', icon: 'react-native', category: 'Mobile' }, { name: 'Docker', icon: 'docker', category: 'Frontend' },
   { name: 'PHP', icon: 'php', category: 'Backend' }, { name: 'Laravel', icon: 'laravel', category: 'Backend' },
   { name: 'Python', icon: 'python', category: 'Backend' }, { name: 'Django', icon: 'django', category: 'Backend' },
   { name: 'Flask', icon: 'flask', category: 'Backend' }, { name: 'Node.js', icon: 'nodejs', category: 'Backend' },
@@ -45,33 +47,61 @@ export const TECH_STACK: TechStack[] = [
 
 export const PROJECTS: Project[] = [
   {
-    id: 'yowl', title: 'YOWL – Social URL Platform',
-    description: 'Plateforme sociale permettant de commenter et partager des URLs, avec authentification, feed et dashboard administrateur.',
-    technologies: ['Laravel', 'Vue.js', 'MySQL', 'Tailwind CSS'], featured: true,
+    id: 'mycontacts',
+    title: 'MyContacts',
+    description: "MyContacts est une application web développée avec Vue.js 3 permettant de gérer un carnet de contacts. Les données sont persistées via une API REST (JSON Server).",
+    technologies: ['Vue.js 3', 'Vite', 'Vue Router', 'Tailwind CSS', 'Bootstrap', 'JSON Server', 'REST API'],
+    demo: 'https://contact-api-mubadev.vercel.app/contacts',
+    image: '/Contact api.png',
+    featured: true,
   },
   {
-    id: 'freeads', title: 'FreeAds – Marketplace',
-    description: 'Marketplace d’annonces classées avec CRUD, gestion d’images, authentification et interface responsive.',
-    technologies: ['Laravel', 'PHP', 'MySQL', 'Bootstrap'], featured: true,
+    id: 'post-it',
+    title: 'Post-it App',
+    description: 'Application web permettant de créer, consulter, modifier et supprimer des notes / Post-it.',
+    technologies: ['Vue.js', 'TypeScript', 'REST API', 'Tailwind CSS'],
+    demo: 'https://positproject.vercel.app/',
+    image: '/post It.png',
+    featured: true,
   },
   {
-    id: 'concert-booking', title: 'Concert Booking Platform',
-    description: 'Application de réservation de concerts avec gestion des billets, authentification, favoris et analytics.',
-    technologies: ['NestJS', 'MongoDB', 'TypeScript', 'HTML/CSS'], featured: true,
+    id: 'furniture-shop',
+    title: 'Furniture Shop',
+    description: "Furniture Shop est une boutique e-commerce responsive développée uniquement avec HTML, CSS et JavaScript.",
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Algolia Search'],
+    demo: 'https://boutique-e-commerce-statique.vercel.app/',
+    image: '/Furniture Shop.png',
+    featured: true,
   },
   {
-    id: 'post-it', title: 'Post-It App',
-    description: 'Projet académique réalisé dans le cadre de la formation Fullstack WeCode by Epitech.',
-    technologies: ['Vue.js', 'TypeScript', 'API REST', 'Tailwind CSS'], featured: true,
+    id: 'linkora',
+    title: 'Linkora',
+    description: "Plateforme sociale permettant aux utilisateurs de partager des URLs, d'interagir avec les publications et de découvrir du contenu partagé.",
+    technologies: ['Laravel', 'Vue.js', 'MySQL', 'Tailwind CSS'],
+    image: '/Linkora — Social URL Platform.png',
+    featured: false,
+  },
+  {
+    id: 'vortexads',
+    title: 'VortexADS',
+    description: 'Marketplace d\u2019annonces permettant aux utilisateurs de publier et consulter des annonces à travers une interface web responsive.',
+    technologies: ['Laravel', 'PHP', 'MySQL', 'Bootstrap'],
+    image: '/VortexADS au lieu de FreeADS.png',
+    featured: false,
+  },
+  {
+    id: 'concert-booking',
+    title: 'Concert Booking Platform',
+    description: 'Application de réservation de concerts avec gestion des billets, authentification, favoris et fonctionnalités d\u2019analyse.',
+    technologies: ['NestJS', 'MongoDB', 'TypeScript', 'HTML/CSS'],
+    featured: false,
   },
 ];
 
-export const EXPERIENCES: Experience[] = [
-  { id: 'moobicom', company: 'MOOBICOM', role: 'Expérience professionnelle', period: '2025 – 2026', description: [], current: false },
-];
+export const EXPERIENCES: Experience[] = [];
 
 export const EDUCATION: Education[] = [
-  { id: 'bts', institution: 'Formation en informatique', degree: 'BTS en Informatique – Développeur d’Applications', period: 'Date non précisée' },
   { id: 'bac', institution: 'Baccalauréat D', degree: 'Baccalauréat D', period: '2022' },
-  { id: 'wecode', institution: 'WeCode by Epitech', degree: 'Formation Fullstack', period: 'Janvier 2026 – Juillet 2026' },
+  { id: 'bts', institution: 'Formation en informatique — diplôme validé en 2025', degree: 'BTS en Informatique – Développeur d’Applications', period: '2025' },
+  { id: 'wecode', institution: 'WeCode by Epitech', degree: 'Formation Fullstack — WeCode by Epitech', period: 'Janvier 2026 – Juillet 2026' },
 ];

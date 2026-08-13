@@ -85,6 +85,13 @@ function ProjectCard({ project, index, isInView }: { project: Project; index: nu
           className="relative h-52 overflow-hidden"
           style={{ background: `linear-gradient(135deg, #081B33 0%, ${accent}18 100%)` }}
         >
+          {project.image && (
+            <img
+              src={project.image}
+              alt={project.title}
+              className="absolute inset-0 w-full h-full object-cover object-center opacity-90"
+            />
+          )}
           {/* Abstract pattern */}
           <div className="absolute inset-0 flex items-center justify-center">
             {/* Hexagonal grid pattern */}
@@ -207,6 +214,31 @@ function ProjectCard({ project, index, isInView }: { project: Project; index: nu
                 {tech}
               </span>
             ))}
+          </div>
+          {/* Action buttons */}
+          <div className="mt-4 flex items-center gap-3">
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="text-sm font-semibold text-white/90 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 transition"
+              >
+                Voir le projet ↗
+              </a>
+            )}
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="text-sm font-semibold text-white/70 px-3 py-2 rounded-lg border border-white/10 hover:border-white/30 transition"
+              >
+                Voir le code ↗
+              </a>
+            )}
           </div>
         </div>
       </div>

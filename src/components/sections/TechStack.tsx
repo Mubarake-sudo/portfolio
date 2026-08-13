@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { TECH_STACK } from '@/lib/data';
 
 /* ─────────────────────────────────────────────────────────────
@@ -122,6 +122,7 @@ function RightExtraGroup({ delay }: { delay: number }) {
 export default function TechStack() {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const [showStacksModal, setShowStacksModal] = useState(false);
 
   return (
     <section id="tech-stack" ref={ref} className="relative section-padding">
@@ -143,7 +144,13 @@ export default function TechStack() {
 
         {/* Skills Map */}
         {isInView && (
-          <div className="relative flex items-center justify-center min-h-[520px] px-4">
+          <>
+            <div className="text-center md:hidden mb-6">
+              <button onClick={() => setShowStacksModal(true)} className="btn-outline">Voir tous les stacks</button>
+            </div>
+
+            {/* Desktop / large layout */}
+            <div className="hidden md:relative md:flex md:items-center md:justify-center md:min-h-[520px] md:px-4">
 
             {/* ── LEFT COLUMN ── */}
             <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-8 w-[42%] max-w-[340px]">
@@ -187,7 +194,36 @@ export default function TechStack() {
               <RightExtraGroup               delay={0.50} />
             </div>
 
-          </div>
+            </div>
+
+            {/* Mobile simplified layout */}
+            <div className="md:hidden space-y-6 px-4">
+              <SkillGroup category="Frontend" delay={0.1} />
+              <SkillGroup category="Mobile" delay={0.15} />
+              <SkillGroup category="Backend" delay={0.2} />
+              <SkillGroup category="Database" delay={0.25} />
+              <RightExtraGroup delay={0.3} />
+            </div>
+
+            {/* Modal with full stacks */}
+            {showStacksModal && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+                <div className="w-[92%] md:w-[70%] h-[80%] bg-[#050816] rounded-xl overflow-auto p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-white font-bold">Toutes les technologies</h3>
+                    <button onClick={() => setShowStacksModal(false)} className="btn-outline">Fermer</button>
+                  </div>
+                  <div className="space-y-6">
+                    <SkillGroup category="Frontend" delay={0} />
+                    <SkillGroup category="Mobile" delay={0} />
+                    <SkillGroup category="Backend" delay={0} />
+                    <SkillGroup category="Database" delay={0} />
+                    <RightExtraGroup delay={0} />
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
         )}
 
       </div>
