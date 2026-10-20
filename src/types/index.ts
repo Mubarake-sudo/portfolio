@@ -3,6 +3,8 @@ export interface Project {
   title: string;
   description: string;
   longDescription?: string;
+  translationKey?: string;
+  category?: string;
   technologies: string[];
   image?: string;
   github?: string;

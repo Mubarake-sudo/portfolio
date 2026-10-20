@@ -4,5 +4,13 @@
   "downloadCV": "下载简历",
   "heroLine1": "我构建令人印象深刻的界面。",
   "heroLine2": "准备与您共同构建未来。",
-  "contactMe": "联系我"
+  "contactMe": "联系我",
+  "projects": {
+    "jbCreation": {
+      "category": "商业项目 — 企业展示网站",
+      "description": "为一家视觉与数字传播机构设计并开发展示网站，介绍其服务、作品集、商业方案、建议及联系方式。网站支持法语和英语。",
+      "imageAlt": "JB CREATION 企业展示网站预览",
+      "visit": "访问网站"
+    }
+  }
 }

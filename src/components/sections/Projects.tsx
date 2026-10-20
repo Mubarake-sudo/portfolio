@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Github, ExternalLink, ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { PROJECTS } from '@/lib/data';
 import type { Project } from '@/types';
 
@@ -15,6 +16,7 @@ import type { Project } from '@/types';
    - Morphing overlay with project info
 ────────────────────────────────────────────────────────────── */
 function ProjectCard({ project, index, isInView }: { project: Project; index: number; isInView: boolean }) {
+  const { t } = useTranslation();
   const cardRef = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [spotlight, setSpotlight] = useState({ x: 50, y: 50, opacity: 0 });
@@ -40,6 +42,10 @@ function ProjectCard({ project, index, isInView }: { project: Project; index: nu
   /* Gradient accent color per project index */
   const ACCENTS = ['#0A84FF', '#00D9FF', '#A78BFA', '#FF6B35', '#34D399', '#F59E0B'];
   const accent = ACCENTS[index % ACCENTS.length];
+  const projectText = (key: string, fallback: string) =>
+    project.translationKey
+      ? t(`${project.translationKey}.${key}`, { defaultValue: fallback })
+      : fallback;
 
   return (
     <motion.div
@@ -88,7 +94,7 @@ function ProjectCard({ project, index, isInView }: { project: Project; index: nu
           {project.image && (
             <img
               src={project.image}
-              alt={project.title}
+              alt={projectText('imageAlt', project.title)}
               className="absolute inset-0 w-full h-full object-cover object-center opacity-90"
             />
           )}
@@ -187,6 +193,12 @@ function ProjectCard({ project, index, isInView }: { project: Project; index: nu
             </motion.div>
           </div>
 
+          {project.category && (
+            <p className="text-xs text-[#64B5FF] font-medium mb-2">
+              {projectText('category', project.category)}
+            </p>
+          )}
+
           {/* Accent line */}
           <motion.div
             animate={hovered ? { width: '100%' } : { width: '32px' }}
@@ -196,7 +208,7 @@ function ProjectCard({ project, index, isInView }: { project: Project; index: nu
           />
 
           <p className="text-white/50 text-sm leading-relaxed mb-4 line-clamp-3">
-            {project.description}
+            {projectText('description', project.description)}
           </p>
 
           {/* Tech badges */}
@@ -225,7 +237,7 @@ function ProjectCard({ project, index, isInView }: { project: Project; index: nu
                 onClick={(e) => e.stopPropagation()}
                 className="text-sm font-semibold text-white/90 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 transition"
               >
-                Voir le projet ↗
+                {projectText('visit', 'Voir le projet')} ↗
               </a>
             )}
             {project.github && (

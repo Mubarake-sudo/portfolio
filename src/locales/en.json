@@ -4,5 +4,13 @@
   "downloadCV": "Download CV",
   "heroLine1": "I build interfaces that impress.",
   "heroLine2": "Ready to build the future with you.",
-  "contactMe": "Contact me"
+  "contactMe": "Contact me",
+  "projects": {
+    "jbCreation": {
+      "category": "Professional project — Showcase website",
+      "description": "Design and development of a showcase website for a visual and digital communications agency, presenting its services, portfolio, offers, advice and contact options. French/English interface.",
+      "imageAlt": "Preview of the JB CREATION showcase website",
+      "visit": "Visit website"
+    }
+  }
 }

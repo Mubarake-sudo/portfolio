@@ -4,5 +4,13 @@
   "downloadCV": "Télécharger CV",
   "heroLine1": "Je construis des interfaces qui impressionnent.",
   "heroLine2": "Prêt à construire l'avenir avec vous.",
-  "contactMe": "Contactez-moi"
+  "contactMe": "Contactez-moi",
+  "projects": {
+    "jbCreation": {
+      "category": "Projet professionnel — Site vitrine",
+      "description": "Conception et développement d'un site vitrine pour une agence de communication visuelle et digitale, présentant ses services, ses réalisations, ses offres, ses conseils et ses moyens de contact. Interface bilingue français/anglais.",
+      "imageAlt": "Aperçu du site vitrine de JB CREATION",
+      "visit": "Visiter le site"
+    }
+  }
 }

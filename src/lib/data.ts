@@ -56,6 +56,17 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
+    id: 'jb-creation',
+    title: 'JB CREATION',
+    description: "Conception et développement d'un site vitrine pour une agence de communication visuelle et digitale, présentant ses services, ses réalisations, ses offres, ses conseils et ses moyens de contact. Interface bilingue français/anglais.",
+    translationKey: 'projects.jbCreation',
+    category: 'Projet professionnel — Site vitrine',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+    demo: 'https://jb-creation-five.vercel.app/',
+    image: '/images/projects/jb-creation.png',
+    featured: true,
+  },
+  {
     id: 'post-it',
     title: 'Post-it App',
     description: 'Application web permettant de créer, consulter, modifier et supprimer des notes / Post-it.',
